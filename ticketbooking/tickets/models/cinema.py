@@ -11,7 +11,6 @@ class Cinema(models.Model):
     lat = models.CharField(max_length=255, blank=True, null=True)
     lon = models.CharField(max_length=255, blank=True, null=True)
 
-
     class Meta:
         verbose_name = "cinema"
         verbose_name_plural = "cinemas"

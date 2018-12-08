@@ -16,10 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from tickets.controllers import *
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.staticfiles.urls import static
+from django.conf import settings
+import os
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'^nested_admin/', include('nested_admin.urls')),
     path('test/', CinemaController.test),
     path('', HomeController.index),
-
 ]
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
